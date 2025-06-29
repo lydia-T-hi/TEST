@@ -4,14 +4,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import seaborn as sns
+import platform
 
-# 한글 폰트 설정 (Windows의 경우)
-font_path = "C:/Windows/Fonts/malgun.ttf"  # 또는 "NanumGothic.ttf" 경로
-font_name = fm.FontProperties(fname=font_path).get_name()
-plt.rc('font', family=font_name)
-# 마이너스 기호 깨짐 방지
-plt.rcParams['axes.unicode_minus'] = False
+## 한글 폰트 설정 (Windows 기준)
+plt.rcParams['font.family'] = 'Malgun Gothic'
+plt.rcParams['axes.unicode_minus'] = False  # 마이너스 기호 깨짐 방지
 
+# 깃허브 리눅스 기준
+if platform.system() == 'Linux':
+    fontname = './NanumGothic.ttf'
+    font_files = fm.findSystemFonts(fontpaths=fontname)
+    fm.fontManager.addfont(fontname)
+    fm._load_fontmanager(try_read_cache=False)
+    rc('font', family='NanumGothic')
 st.set_page_config(page_title="우리 동네 인구 구조 시각화")
 
 # ───── 사이드바 메뉴 ─────
