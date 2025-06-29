@@ -197,7 +197,6 @@ elif selected == "인구 지표 분석 - 고령화 지수":
     else:
         df1 = st.session_state.df.copy()
 
-/      
 /        # 고령화 지수 계산
         df1['고령화지수'] = df1.iloc[:, 71:104].sum(axis=1) / df1.iloc[:, 21:64].sum(axis=1) * 100
 
