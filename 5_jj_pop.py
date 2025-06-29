@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import seaborn as sns
 import platform
+from matplotlib import rc
 
 ## 한글 폰트 설정 (Windows 기준)
 plt.rcParams['font.family'] = 'Malgun Gothic'
